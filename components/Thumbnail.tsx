@@ -9,8 +9,8 @@ interface Props {
 }
 
 function Thumbnail({ movie }: Props) {
-  const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
-  const [showModal, setShowModal] = useRecoilState(modalState)
+  const [_, setCurrentMovie] = useRecoilState(movieState)
+  const [__, setShowModal] = useRecoilState(modalState)
 
   return (
     <div

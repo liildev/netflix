@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import toast, { Toaster } from 'react-hot-toast'
 import useAuth from '../hooks/useAuth'
 
 interface Inputs {
@@ -9,9 +10,19 @@ interface Inputs {
   password: string
 }
 
+const toastStyle = {
+  background: 'white',
+  color: 'black',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  padding: '15px',
+  borderRadius: '9999px',
+  maxWidth: '1000px',
+}
+
 function Login() {
   const [login, setLogin] = useState(false)
-  const { signIn, signUp } = useAuth()
+  const { signIn, signUp, error } = useAuth()
 
   const {
     register,
@@ -22,10 +33,20 @@ function Login() {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if (login) {
       await signIn(data.email, data.password)
+
+      toast(error, {
+        duration: 4000,
+        style: toastStyle,
+      })
     } else {
       await signUp(data.email, data.password)
+      toast(error, {
+        duration: 4000,
+        style: toastStyle,
+      })
     }
   }
+
 
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
@@ -33,6 +54,8 @@ function Login() {
         <title>Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Toaster position='bottom-center' />
       <Image
         src="/login.jpeg"
         layout="fill"

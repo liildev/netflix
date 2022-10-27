@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
+  apiKey: 'AIzaSyBuu0YHXOcgmqWLZl-fiMn6lG2wUhdPg8k',
   authDomain: 'next-firebase-stripe-39bf8.firebaseapp.com',
   databaseURL: 'https://next-firebase-stripe-39bf8-default-rtdb.firebaseio.com',
   projectId: 'next-firebase-stripe-39bf8',
