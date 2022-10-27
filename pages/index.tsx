@@ -9,6 +9,7 @@ import { useRecoilValue } from 'recoil'
 import { modalState, movieState } from '../utils/atom'
 import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import { Banner, Header, Row, Modal, Plans } from '../components'
+import MainLayout from '../layout'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -34,47 +35,42 @@ const Home = ({
   products,
 }: Props) => {
   const { user, loading } = useAuth()
-  const subscription = useSubscription(user)  
+  const subscription = useSubscription(user)
   const showModal = useRecoilValue(modalState)
   const movie = useRecoilValue(movieState)
   const list = useList(user?.uid)
 
   if (loading || subscription === null) return null
 
-  if (!subscription) return <Plans products={products }  />
+  if (!subscription) return <Plans products={products} />
 
   return (
-    <div
-      className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'
-        }`}
-    >
-      <Head>
-        <title>
-          {movie?.title || movie?.original_name || 'Home'} - Netflix
-        </title>
-        <link rel="icon" href="/logo.svg" />
-      </Head>
+    <MainLayout title='Home'>
+      <div
+        className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'
+          }`}
+      >
+        <Header />
 
-      <Header />
+        <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 ">
+          <Banner netflixOriginals={netflixOriginals} />
 
-      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 ">
-        <Banner netflixOriginals={netflixOriginals} />
+          <section className="md:space-y-24">
+            <Row title="Trending Now" movies={trendingNow} />
+            <Row title="Top Rated" movies={topRated} />
+            <Row title="Action Thrillers" movies={actionMovies} />
+            {/* My List */}
+            {list.length > 0 && <Row title="My List" movies={list} />}
 
-        <section className="md:space-y-24">
-          <Row title="Trending Now" movies={trendingNow} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} />
-          {/* My List */}
-          {list.length > 0 && <Row title="My List" movies={list} />}
-
-          <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" movies={horrorMovies} />
-          <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} />
-        </section>
-      </main>
-      {showModal && <Modal />}
-    </div>
+            <Row title="Comedies" movies={comedyMovies} />
+            <Row title="Scary Movies" movies={horrorMovies} />
+            <Row title="Romance Movies" movies={romanceMovies} />
+            <Row title="Documentaries" movies={documentaries} />
+          </section>
+        </main>
+        {showModal && <Modal />}
+      </div>
+    </MainLayout>
   )
 }
 

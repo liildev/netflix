@@ -5,7 +5,6 @@ import { db } from '../libs/firebase'
 
 function useList(uid: string | undefined) {
   const [list, setList] = useState<DocumentData[] | Movie[]>([])
-console.log(onSnapshot);
 
   useEffect(() => {
     if (!uid) return
