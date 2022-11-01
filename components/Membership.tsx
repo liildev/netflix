@@ -22,7 +22,7 @@ export default function Membership() {
         <h4 className="text-lg text-[gray]">Membership & Billing</h4>
         <button
           disabled={isBillingLoading || !subscription}
-          className="h-10 w-3/5 whitespace-nowrap bg-gray-300 py-2 text-sm font-medium text-black shadow-md hover:bg-gray-200 md:w-4/5"
+          className="h-10 w-3/5 whitespace-nowrap bg-gray-300 text-[12px]  ss:text-sm font-medium text-black shadow-md hover:bg-gray-200 md:w-4/5"
           onClick={manageSubscription}
         >
           {isBillingLoading ? (
@@ -54,7 +54,7 @@ export default function Membership() {
               {subscription?.current_period_end}
             </p>
           </div>
-          <div className="md:text-right">
+          <div className="md:text-right mb-4 md:mb-0">
             <p className="membershipLink">Manage payment info</p>
             <p className="membershipLink">Add backup payment method</p>
             <p className="membershipLink">Billing Details</p>

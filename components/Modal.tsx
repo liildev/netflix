@@ -31,8 +31,8 @@ const toastStyle = {
   background: 'white',
   color: 'black',
   fontWeight: 'bold',
-  fontSize: '16px',
-  padding: '15px',
+  fontSize: '14px',
+  padding: '10px',
   borderRadius: '9999px',
   maxWidth: '1000px',
 }
@@ -122,13 +122,13 @@ export default function Modal() {
     <MuiModal
       open={showModal}
       onClose={handleClose}
-      className="fixed !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
+      className="fixed !top-5 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
       <>
         <Toaster position='bottom-center' />
         <button
           onClick={handleClose}
-          className="modalButton absolute top-5 right-5 !z-40 h-9 w-9 border-none bg-[#181818] hover:bg-[#181818]"
+          className="modalButton absolute top-2 right-2 ss:top-5 ss:right-5 !z-40 h-7 w-7 ss:h-9 ss:w-9 border-none bg-[#181818] hover:bg-[#181818]"
         >
           <XIcon className='h-4 w-4  md:h-7 md:w-7' />
         </button>
@@ -143,10 +143,10 @@ export default function Modal() {
             muted={muted}
           />
 
-          <div className="absolute bottom-5 sm:bottom-10 flex w-full items-center justify-between px-10">
+          <div className="absolute bottom-2 sm:bottom-10 flex w-full items-center justify-between px-3 ss:px-10">
             <div className="flex space-x-2">
               <button className="flex items-center gap-x-2 rounded bg-white px-4 sm:px-8 sm:text-xl text-sm font-bold text-black transition hover:bg-[#e6e6e6]">
-                <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
+                <FaPlay className="h-3 w-3 ss:h-4 ss:w-4 text-black md:h-7 md:w-7" />
                 Play
               </button>
 
@@ -174,7 +174,7 @@ export default function Modal() {
             </button>
           </div>
         </div>
-        <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
+        <div className="flex space-x-16 rounded-b-md bg-[#181818] px-3 ss:px-10 py-8">
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">
               <p className="font-semibold text-green-400">

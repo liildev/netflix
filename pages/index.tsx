@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import useAuth from '../hooks/useAuth'
 import useList from '../hooks/useList'
 import useSubscription from '../hooks/useSubscription'

@@ -28,7 +28,7 @@ function Header() {
         <img
           src="/logo.svg"
           alt="Netflix"
-          className="cursor-pointer object-contain w-[100px] sm:w-[120px]"
+          className="cursor-pointer object-contain w-[80px] ss:w-[120px]"
         />
 
         <BasicMenu />
@@ -51,7 +51,7 @@ function Header() {
           <img
             src="/account.png"
             alt='Account'
-            className="cursor-pointer rounded"
+            className="cursor-pointer rounded w-[30px] ss:w-[35px]"
           />
         </Link>
       </div>
