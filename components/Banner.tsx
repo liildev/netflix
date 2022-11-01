@@ -22,7 +22,7 @@ function Banner({ netflixOriginals }: Props) {
   }, [netflixOriginals])
 
   return (
-    <div className="flex flex-col space-y-2 py-8 md:space-y-6 h-[75vh] justify-end">
+    <div className="flex flex-col space-y-2 py-8 md:space-y-6 h-[65vh] ss:h-[75vh] justify-end">
       <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen">
         <Image
           layout="fill"
@@ -31,7 +31,7 @@ function Banner({ netflixOriginals }: Props) {
         />
       </div>
 
-      <h1 className="text-xl ss:text-3xl font-bold md:text-4xl lg:text-7xl">
+      <h1 className="text-3xl font-bold md:text-4xl lg:text-7xl">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
 

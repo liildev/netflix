@@ -60,16 +60,15 @@ function Login() {
         />
         <img
           src="/logo.svg"
-          className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
-          width={150}
-          height={150}
+          className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6 w-[100px] ss:w-[120px]"
+          alt='Netflix'
         />
 
         <form
           className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-4xl font-semibold">Sign In</h1>
+          <h1 className="text-2xl ss:text-4xl font-semibold">Sign In</h1>
           <div className="space-y-4">
             <label className="inline-block w-full">
               <input

@@ -28,7 +28,7 @@ function Header() {
         <img
           src="/logo.svg"
           alt="Netflix"
-          className="cursor-pointer object-contain w-[80px] ss:w-[120px]"
+          className="cursor-pointer object-contain w-[90px] ss:w-[120px]"
         />
 
         <BasicMenu />
